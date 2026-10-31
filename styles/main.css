@@ -1,0 +1,149 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #05020a;
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wallpaper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, #2d0b28 0%, #05020a 100%);
+    z-index: 1;
+}
+
+.bg_heart {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100vh;
+    width: 100%;
+}
+
+/* === BENTUK HATI BESAR SOLID (TANPA GARIS) === */
+.heart-wrapper {
+    position: relative;
+    margin-bottom: 50px;
+    filter: drop-shadow(0 0 25px rgba(255, 105, 180, 0.8)) 
+            drop-shadow(0 0 50px rgba(230, 57, 70, 0.6));
+    animation: pulse 1.8s infinite ease-in-out;
+}
+
+.big-heart {
+    position: relative;
+    width: 140px;
+    height: 140px;
+    background: linear-gradient(135deg, #ff4d6d, #ff758f, #ffb3c1);
+    transform: rotate(-45deg);
+    border-radius: 4px;
+}
+
+.big-heart::before,
+.big-heart::after {
+    content: '';
+    position: absolute;
+    width: 140px;
+    height: 140px;
+    background: linear-gradient(135deg, #ff4d6d, #ff758f, #ffb3c1);
+    border-radius: 50%;
+}
+
+.big-heart::before {
+    top: -70px;
+    left: 0;
+}
+
+.big-heart::after {
+    left: 70px;
+    top: 0;
+}
+
+/* Animasi Detak Hati (Pulsating) */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.08);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* === PESAN TEKS === */
+.message h1 {
+    color: #ffccd5;
+    font-size: 2.2rem;
+    font-weight: 500;
+    text-shadow: 0 0 10px rgba(255, 182, 193, 0.8), 0 0 20px rgba(255, 105, 180, 0.5);
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+}
+
+/* === TOMBOL === */
+.next-button {
+    display: inline-block;
+    padding: 12px 30px;
+    background: linear-gradient(45deg, #ff4d6d, #ff85a1);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(255, 77, 109, 0.4);
+    transition: all 0.3s ease;
+}
+
+.next-button:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(255, 77, 109, 0.7);
+}
+
+/* === EFEK KELOPAK BUNGA SAKURA/MAWAR === */
+.sakura-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.petal {
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.8;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    0% {
+        top: -10%;
+        transform: translateX(0) rotate(0deg);
+        opacity: 0.9;
+    }
+    100% {
+        top: 110%;
+        transform: translateX(100px) rotate(360deg);
+        opacity: 0.2;
+    }
+}

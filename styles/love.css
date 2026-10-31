@@ -1,0 +1,111 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  background-color: #05020a;
+  font-family: 'Poppins', 'Arial', sans-serif;
+  overflow: hidden;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Canvas Latar Belakang & Animasi */
+canvas {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* Wadah Teks di Bawah Hati */
+.message-container {
+  position: absolute;
+  bottom: 8vh;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  text-align: center;
+  width: 95%;
+  pointer-events: none;
+}
+
+/* Teks Baris 1 */
+.love-text {
+  color: #ffccd5;
+  font-size: 2.2rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-shadow: 0 0 10px rgba(255, 182, 193, 0.8),
+               0 0 20px rgba(255, 105, 180, 0.6),
+               0 0 30px rgba(230, 57, 70, 0.4);
+  animation: glowText 2s ease-in-out infinite alternate;
+  margin-bottom: 8px;
+}
+
+/* Teks Baris 2 */
+.sub-text-1 {
+  color: #ffb3c1;
+  font-size: 1.4rem;
+  font-weight: 500;
+  letter-spacing: 0.8px;
+  text-shadow: 0 0 8px rgba(255, 179, 193, 0.7);
+  margin-bottom: 6px;
+}
+
+/* Teks Baris 3 */
+.sub-text-2 {
+  color: #ff85a1;
+  font-size: 1.2rem;
+  font-weight: 400;
+  letter-spacing: 0.8px;
+  text-shadow: 0 0 8px rgba(255, 133, 161, 0.7);
+}
+
+@keyframes glowText {
+  0% {
+    opacity: 0.85;
+    transform: scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.02);
+  }
+}
+
+/* Media Queries Responsif untuk HP */
+@media (max-width: 600px) {
+  .message-container {
+    bottom: 6vh;
+  }
+  .love-text {
+    font-size: 1.6rem;
+  }
+  .sub-text-1 {
+    font-size: 1.1rem;
+  }
+  .sub-text-2 {
+    font-size: 0.95rem;
+  }
+}
+
+/* Media Queries untuk Tablet */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .love-text {
+    font-size: 1.9rem;
+  }
+  .sub-text-1 {
+    font-size: 1.3rem;
+  }
+  .sub-text-2 {
+    font-size: 1.1rem;
+  }
+}
