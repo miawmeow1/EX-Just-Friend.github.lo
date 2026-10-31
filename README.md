@@ -1,6 +1,4 @@
-# EX-Just-Friend.github.lo
-
-# 💖 Interactive Confession Web Project (Ex-Friend Edition)
+# 💖 Interactive Confession Web Project EX-Just-Friend.github.lo
 
 Proyek web interaktif bertema *confession* yang dirancang khusus untuk seseorang dari masa lalu (*ex-friend*). Dibangun dengan estetika visual yang romantis, animasi hati besar di Canvas, efek kelopak bunga bertebangan, pemutaran musik latar tanpa putus, serta sentuhan pesan teks campuran bahasa Jawa yang jujur, santai, tapi tetap ngena.
 
