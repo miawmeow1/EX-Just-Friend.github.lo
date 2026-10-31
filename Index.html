@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>❤️ Confess</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <div class="wallpaper"></div>
+
+    <!-- Container Utama -->
+    <div class="bg_heart">
+        <!-- Wadah Efek Kelopak Bunga Bertebangan -->
+        <div class="sakura-container" id="sakuraContainer"></div>
+
+        <!-- Bentuk Hati Besar Berkilau (Pink / Merah) -->
+        <div class="heart-wrapper">
+            <div class="big-heart"></div>
+        </div>
+
+        <!-- Pesan Teks -->
+        <div class="message">
+            <h1>Kulo iki mung sayang 🤍🥀</h1>
+        </div>
+
+        <!-- Tombol Lanjut -->
+        <a href="love.html" class="next-button">pencet aku 💕</a>
+    </div>
+
+    <!-- Audio Background -->
+    <audio id="backgroundMusic" loop>
+        <source src="assets/Merry Christmas, i miss you.mp3" type="audio/mpeg">
+        Browser kamu tidak mendukung pemutaran audio.
+    </audio>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script/main.js"></script>
+    <script>
+        function setupMusic() {
+            const music = document.getElementById('backgroundMusic');
+            if (!music) return;
+            
+            const isMusicPlaying = localStorage.getItem('musicPlaying') === 'true';
+            const musicCurrentTime = localStorage.getItem('musicCurrentTime') || 0;
+
+            if (isMusicPlaying) {
+                music.currentTime = parseFloat(musicCurrentTime);
+            }
+
+            music.addEventListener('play', () => {
+                localStorage.setItem('musicPlaying', 'true');
+            });
+
+            music.addEventListener('pause', () => {
+                localStorage.setItem('musicPlaying', 'false');
+            });
+
+            setInterval(() => {
+                if (!music.paused) {
+                    localStorage.setItem('musicCurrentTime', music.currentTime);
+                }
+            }, 1000);
+
+            document.addEventListener('click', function startMusic() {
+                music.play().catch(error => {
+                    console.log('Autoplay prevented:', error);
+                });
+                document.removeEventListener('click', startMusic);
+            });
+        }
+        document.addEventListener('DOMContentLoaded', setupMusic);
+    </script>
+</body>
+</html>
